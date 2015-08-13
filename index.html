@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>webCAD</title>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <style>
+      body { 
+
+        margin: 0; 
+        background: #cedce7; /* Old browsers */
+        background: -moz-linear-gradient(top,  #cedce7 0%, #596a72 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cedce7), color-stop(100%,#596a72)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #cedce7 0%,#596a72 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #cedce7 0%,#596a72 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #cedce7 0%,#596a72 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #cedce7 0%,#596a72 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+      }
+
+    .side-nav a {
+        color: #444;
+        display: block;
+        font-size: 1rem;
+        height: 2em !important;
+        line-height: 2em !important;
+        padding: 0 15px;
+    }
+    html, body, canvas {
+      padding: 0px;
+      overflow: hidden;
+      margin: 0px;
+      width: 100%;
+      height: 100%;
+      border: 0px !important;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+
+
+/*  header, main, footer {
+    padding-left: 240px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
+       */
+
+/*  header, main, footer {
+    padding-left: 240px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }*/
+  #menu {
+    right: 9%;
+    top: 0;
+    position: absolute;
+  }
+  #menu:hover {
+    cursor: pointer;
+  }
+  #panel {
+    right: 1%;
+    bottom: 0%;
+    height: 60%;
+    width: 100%;
+    position: absolute;
+  }
+  #panel > div {
+    height: 100%;
+  }
+  #panel > div > div {
+    height: 100%;
+    width: 100%;
+  }
+
+  #panel td {
+    font-size: .9em;
+    line-height: 0.05em;
+  }
+
+</style>
+<!-- <ul id="fileDropdown" class="dropdown-content">
+  <li><a href="#!">New</a></li>
+  <li><a href="#!">File</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Exports</a></li>
+</ul>
+ -->
+
+
+
+</head>
+<!-- Navbar Dropdown Structure -->
+
+
+        
+
+
+
+        <!-- </div> -->
+      <!-- </div> -->
+<!--     </div>
+  </div> -->
+
+  <body>
+        
+        <!-- Menu Button -->
+        <i class="large material-icons" id="menu">view_module</i>
+        
+        <ul id="slide-out" class="side-nav fixed">
+          <li><a href="#!">First Sidebar Link</a></li>
+          <li><a href="#!">Second Sidebar Link</a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="#!">First</a></li>
+                    <li><a href="#!">Second</a></li>
+                    <li><a href="#!">Third</a></li>
+                    <li><a href="#!">Fourth</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Object Panel -->
+
+        <div class="row" id="panel">
+          <div class="col offset-s10 s2">
+            <div class="card-panel grey lighten-4">
+              
+
+              <p class="bold"> Box </p>
+
+
+              <table>
+                <tbody>
+                  <tr id="objectPosition">
+                    <td>Position</td>
+                    <td>$0.87</td>
+                    <td>$0.87</td>
+                    <td>$0.87</td>
+                  </tr>
+                  <tr id="objectRotation">
+                    <td>Rotation</td>
+                    <td>$3.76</td>
+                    <td>$3.76</td>
+                    <td>$3.76</td>
+                  </tr>
+                  <tr id="objectScale">
+                    <td>Scale</td>
+                    <td>$7.00</td>
+                    <td>$7.00</td>
+                    <td>$7.00</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <div class="row">
+              <div class="col s4">
+                <i class="small material-icons" id="displayVerts">dialpad</i>
+              </div>
+
+            </div>
+
+            
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="build/js/three/three.js"></script>   
+      <script src="build/js/three/OrbitControls.js"></script>   
+      <script src="build/js/three/GridHelper.js"></script>   
+      <script src="build/js/scene.js"></script>   
+      <script src="build/js/menu.js"></script>   
+      <script src="build/js/panel.js"></script>   
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+      <script>
+        $( document ).ready(function() {
+          $(".dropdown-button").dropdown({hover:true});
+          var Viewport = ViewportContainer();
+          Menu(Viewport);
+          Panel(Viewport);
+        });
+      </script>
+  
+
+
+  </body>
+  
+
+</html>
